@@ -1,12 +1,13 @@
-package com.aipalbot.carsales.webservice.service;
+package com.aipalbot.carsales.webservice.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.aipalbot.carsales.webservice.entity.CarEntity;
+import com.aipalbot.carsales.webservice.entity.StockEntity;
 import com.aipalbot.carsales.webservice.model.CarItem;
 import com.aipalbot.carsales.webservice.repository.CarRepository;
 import com.aipalbot.carsales.webservice.request.CarRequest;
+import com.aipalbot.carsales.webservice.service.CarService;
 
 @Service
 public class CarServiceImpl implements  CarService{
@@ -18,7 +19,7 @@ public class CarServiceImpl implements  CarService{
 	
 	@Override
 	public String addItem(CarItem carItem) {
-		CarEntity entity = new CarEntity();
+		StockEntity entity = new StockEntity();
 		entity.setMilleage(carItem.getMilleage());
 		entity.setPrice(carItem.getPrice());
 		entity.setStatus(carItem.isStatus());

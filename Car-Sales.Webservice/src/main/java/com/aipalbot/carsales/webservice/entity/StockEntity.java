@@ -9,11 +9,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "CAR_STOCK_TBL")
-public class CarEntity {
+public class StockEntity {
 	
 	 @Id
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long stockId;
+	private int stockId;
 
 	@Column
 	private String vin; 
@@ -27,11 +27,22 @@ public class CarEntity {
 	@Column
 	private boolean status;
 	
-	public Long getStockId() {
+	@Column
+	private String carImageUrl;
+	
+	public String getCarImageUrl() {
+		return carImageUrl;
+	}
+
+	public void setCarImageUrl(String carImageUrl) {
+		this.carImageUrl = carImageUrl;
+	}
+
+	public int getStockId() {
 		return stockId;
 	}
 
-	public void setStockId(Long stockId) {
+	public void setStockId(int stockId) {
 		this.stockId = stockId;
 	}
 
