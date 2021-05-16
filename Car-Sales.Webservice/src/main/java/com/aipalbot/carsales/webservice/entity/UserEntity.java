@@ -10,11 +10,12 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "USERS_TBL")
 public class UserEntity {
-	 @Id
-	 @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int userId;
 
-	@Column
+//	 @GeneratedValue(strategy = GenerationType.IDENTITY)
+//	private int userId;
+
+	 @Id
+	 @Column(unique=true)
 	private String email; 
 	
 	@Column
@@ -23,13 +24,7 @@ public class UserEntity {
 	@Column
 	private String role; // admin or user 
 
-	public int getUserId() {
-		return userId;
-	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
 
 	public String getEmail() {
 		return email;
