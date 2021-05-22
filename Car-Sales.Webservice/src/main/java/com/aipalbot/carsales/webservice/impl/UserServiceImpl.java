@@ -38,8 +38,28 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public boolean retrieveUser(String email) {
-		// TODO Auto-generated method stub
+	public UserEntity retrieveUser(String email) {
+		
+		UserEntity userEntity = userRepository.findByEmail(email);
+		
+		return userEntity;
+	}
+
+	@Override
+	public boolean signIn(UserRequest request) {
+		//get user detail from database using user email
+		UserEntity userEntity = retrieveUser(request.getEmail());
+		//compare what we retrieved from the database with what the user provided for login
+		if(userEntity == null) {
+			
+			return false;
+			
+		}else if(userEntity.getPassword().equalsIgnoreCase(request.getPassword())) {
+			
+			return true;
+			
+		}
+		
 		return false;
 	}
 

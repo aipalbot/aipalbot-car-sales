@@ -1,6 +1,7 @@
 package com.aipalbot.carsales.webservice.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,5 +28,13 @@ public class UserController {
 		
 		return "User is created successfully!";
 	}
-	
+
+	@CrossOrigin(origins = "http://localhost:3001")
+	@PostMapping("sign-in")
+	public boolean signIn(@RequestBody UserRequest request) {
+		
+		boolean response = userService.signIn(request);
+		
+		return response;
+	}
 }

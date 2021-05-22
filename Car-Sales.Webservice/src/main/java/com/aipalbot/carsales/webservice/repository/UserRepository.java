@@ -8,4 +8,5 @@ import com.aipalbot.carsales.webservice.entity.UserEntity;
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity, Integer>{
 
+	UserEntity findByEmail(String email);
 }
