@@ -20,7 +20,7 @@ public class UserController {
 	
 	
 	//ResponseEntity
-	
+	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping("create")
 	public String addNewCustomer(@RequestBody UserRequest request) {
 		
@@ -29,7 +29,7 @@ public class UserController {
 		return "User is created successfully!";
 	}
 
-	@CrossOrigin(origins = "http://localhost:3001")
+	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping("sign-in")
 	public boolean signIn(@RequestBody UserRequest request) {
 		

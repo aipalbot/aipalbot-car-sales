@@ -22,9 +22,29 @@ public class UserEntity {
 	private String password; 
 	
 	@Column
-	private String role; // admin or user 
+	private String role; // admin or normal 
 
+	@Column
+	private String firstName;
+	
+	@Column
+	private String lastName;
 
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 
 	public String getEmail() {
 		return email;
