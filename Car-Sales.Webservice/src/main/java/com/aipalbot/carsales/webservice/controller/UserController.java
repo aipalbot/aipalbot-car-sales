@@ -7,8 +7,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.aipalbot.carsales.webservice.constant.CommonConstant;
 import com.aipalbot.carsales.webservice.request.UserRequest;
+import com.aipalbot.carsales.webservice.response.UserResponse;
 import com.aipalbot.carsales.webservice.service.UserService;
 
 @RestController
@@ -20,20 +21,21 @@ public class UserController {
 	
 	
 	//ResponseEntity
-	@CrossOrigin(origins = "http://localhost:3000")
+	@CrossOrigin(origins = CommonConstant.REACT_APP_URL)
 	@PostMapping("create")
 	public String addNewCustomer(@RequestBody UserRequest request) {
 		
 		userService.registerUser(request);
+	
 		
-		return "User is created successfully!";
+		return CommonConstant.ADD_NEW_USER_MSG;
 	}
 
-	@CrossOrigin(origins = "http://localhost:3000")
+	@CrossOrigin(origins =  CommonConstant.REACT_APP_URL)
 	@PostMapping("sign-in")
-	public boolean signIn(@RequestBody UserRequest request) {
+	public UserResponse signIn(@RequestBody UserRequest request) {
 		
-		boolean response = userService.signIn(request);
+		UserResponse response = userService.signIn(request);
 		
 		return response;
 	}

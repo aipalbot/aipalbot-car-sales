@@ -9,6 +9,7 @@ import com.aipalbot.carsales.webservice.entity.CustomerEntity;
 import com.aipalbot.carsales.webservice.repository.CustomerRepository;
 import com.aipalbot.carsales.webservice.request.CustomerRequest;
 import com.aipalbot.carsales.webservice.service.CustomerService;
+import com.aipalbot.carsales.webservice.util.CommonUtil;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -25,8 +26,8 @@ public class CustomerServiceImpl implements CustomerService {
 		CustomerEntity customerEntity = new CustomerEntity();
 		customerEntity.setAddress(request.getAddress());
 		customerEntity.setCustomerEmail(request.getCustomerEmail());
-		int n = rand.nextInt(5000000);
-		customerEntity.setCustomerId(n);
+		
+		customerEntity.setCustomerId(CommonUtil.generateNumber());
 		customerEntity.setFirstName(request.getFirstName());
 		customerEntity.setLastName(request.getLastName());
 		customerEntity.setPhoneNumber(request.getPhoneNumber());

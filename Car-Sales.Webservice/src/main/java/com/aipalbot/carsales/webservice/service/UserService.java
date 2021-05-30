@@ -2,6 +2,7 @@ package com.aipalbot.carsales.webservice.service;
 
 import com.aipalbot.carsales.webservice.entity.UserEntity;
 import com.aipalbot.carsales.webservice.request.UserRequest;
+import com.aipalbot.carsales.webservice.response.UserResponse;
 
 public interface UserService {
 	
@@ -13,6 +14,6 @@ public interface UserService {
 	
 	UserEntity retrieveUser(String email);
 	
-	boolean signIn(UserRequest request);
+	UserResponse signIn(UserRequest request);
 	
 }
