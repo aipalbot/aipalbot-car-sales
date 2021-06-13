@@ -21,11 +21,15 @@ public class CarServiceImpl implements  CarService{
 	public String addItem(CarItem carItem) {
 		StockEntity entity = new StockEntity();
 		entity.setMilleage(carItem.getMilleage());
+		entity.setMaker(carItem.getMaker());
 		entity.setPrice(carItem.getPrice());
 		entity.setStatus(carItem.isStatus());
 		entity.setVin(carItem.getVin());
+		entity.setCarImageUrl(carItem.getImgUrl());
+		entity.setEngine(carItem.getEngine());
+		entity.setYear(carItem.getYear());
 		
-		//save to the h2 database
+
 		carRepository.save(entity);
 		
 		return "Successfully saved!";

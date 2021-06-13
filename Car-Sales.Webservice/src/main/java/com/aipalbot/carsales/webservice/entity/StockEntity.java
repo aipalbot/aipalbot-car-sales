@@ -30,6 +30,41 @@ public class StockEntity {
 	@Column
 	private String carImageUrl;
 	
+	@Column
+	private String maker;
+	
+	@Column
+	private String engine;
+
+	@Column
+	private int year;
+	
+	
+	
+	public String getMaker() {
+		return maker;
+	}
+
+	public void setMaker(String maker) {
+		this.maker = maker;
+	}
+
+	public String getEngine() {
+		return engine;
+	}
+
+	public void setEngine(String engine) {
+		this.engine = engine;
+	}
+
+	public int getYear() {
+		return year;
+	}
+
+	public void setYear(int year) {
+		this.year = year;
+	}
+
 	public String getCarImageUrl() {
 		return carImageUrl;
 	}

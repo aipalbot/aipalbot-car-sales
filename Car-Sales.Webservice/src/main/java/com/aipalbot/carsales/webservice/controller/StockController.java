@@ -1,6 +1,7 @@
 package com.aipalbot.carsales.webservice.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,11 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.aipalbot.carsales.webservice.constant.CommonConstant;
 import com.aipalbot.carsales.webservice.model.CarItem;
 import com.aipalbot.carsales.webservice.request.CarRequest;
 import com.aipalbot.carsales.webservice.response.CarResponse;
 import com.aipalbot.carsales.webservice.service.CarService;
 
+
+@CrossOrigin(origins = CommonConstant.REACT_APP_URL)
 @RestController
 @RequestMapping("stock/")
 public class StockController {
@@ -31,6 +35,11 @@ public class StockController {
 		item.setMilleage(request.getMilleage());
 		item.setStatus(request.isStatus());
 		item.setPrice(request.getPrice());
+		item.setImgUrl(request.getImgUrl());
+		item.setEngine(request.getEngine());
+		item.setYear(request.getYear());
+		item.setMaker(request.getMaker());
+	
 	
 		
 		String response = carService.addItem(item);

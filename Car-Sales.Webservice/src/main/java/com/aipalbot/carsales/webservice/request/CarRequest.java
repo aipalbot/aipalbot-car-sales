@@ -19,6 +19,8 @@ public class CarRequest {
 	private String modelName;
 	private int year;
 	private String maker;
+	private String imgUrl; /// AWS S3
+	
 	
 	public String getFuelType() {
 		return fuelType;
@@ -122,6 +124,12 @@ public class CarRequest {
 	}
 	public void setStatus(boolean status) {
 		this.status = status;
+	}
+	public String getImgUrl() {
+		return imgUrl;
+	}
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
 	}
 
 
