@@ -1,5 +1,8 @@
 package com.aipalbot.carsales.webservice.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,6 +42,28 @@ public class CarServiceImpl implements  CarService{
 	public void addItem(CarRequest carReq) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public List<CarItem> retrieveItems() {
+		List<StockEntity> items = carRepository.findAll();
+		
+		List<CarItem> carItems = new ArrayList<>();
+		
+		for(StockEntity item: items) {
+			CarItem carItem = new CarItem(item.getVin());
+			carItem.setImgUrl(item.getCarImageUrl());
+			carItem.setMaker(item.getMaker());		
+			carItems.add(carItem);
+		}
+		
+		return carItems;
+	}
+
+	@Override
+	public List<StockEntity> retrieveCarEntities() {
+	
+		return  carRepository.findAll();
 	}
 
 //Types of DI

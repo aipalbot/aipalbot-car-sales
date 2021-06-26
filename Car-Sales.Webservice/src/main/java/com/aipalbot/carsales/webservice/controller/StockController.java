@@ -1,5 +1,7 @@
 package com.aipalbot.carsales.webservice.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.aipalbot.carsales.webservice.constant.CommonConstant;
+import com.aipalbot.carsales.webservice.entity.StockEntity;
 import com.aipalbot.carsales.webservice.model.CarItem;
 import com.aipalbot.carsales.webservice.request.CarRequest;
 import com.aipalbot.carsales.webservice.response.CarResponse;
@@ -66,9 +69,25 @@ public class StockController {
 	
 	//stock/item?modelName=camry&maker=toyota
 	@GetMapping("item")
-	public CarResponse  getItemByModelMaker(@RequestParam(value = "model") String modelName, @RequestParam String maker) {
+	public CarResponse  getItemByModelMaker(@RequestParam(value = "model") String modelName, 
+			@RequestParam String maker) {
 		
 		return null;
 	}
 	
+	
+	@GetMapping("items")
+	public List<CarItem> getItems(){
+		List<CarItem> items = carService.retrieveItems();
+		
+		return items;
+	}
+	@GetMapping("items/all")
+	public List<StockEntity> getAllItems(){
+		List<StockEntity> items = carService.retrieveCarEntities();
+		
+		return items;
+	}
+	
+
 }
