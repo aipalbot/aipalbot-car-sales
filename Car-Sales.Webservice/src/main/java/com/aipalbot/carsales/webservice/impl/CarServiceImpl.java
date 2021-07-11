@@ -66,6 +66,19 @@ public class CarServiceImpl implements  CarService{
 		return  carRepository.findAll();
 	}
 
+	@Override
+	public CarItem getCar(String vin) {
+		
+		StockEntity entity =carRepository.findByVin(vin);
+		
+		CarItem carItem = new CarItem(vin);
+		carItem.setMaker(entity.getMaker());
+		carItem.setPrice(entity.getPrice());
+		carItem.setYear(entity.getYear());
+		
+		return carItem;
+	}
+
 //Types of DI
 	//constructor injection
 	//setter injection

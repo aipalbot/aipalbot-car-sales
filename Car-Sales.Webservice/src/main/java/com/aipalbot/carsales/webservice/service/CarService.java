@@ -13,4 +13,5 @@ public interface CarService {
 	void addItem(CarRequest carReq);
 	List<CarItem> retrieveItems();
 	List<StockEntity> retrieveCarEntities();
+	CarItem getCar(String vin);
 }

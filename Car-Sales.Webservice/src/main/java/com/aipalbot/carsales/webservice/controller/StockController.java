@@ -63,8 +63,14 @@ public class StockController {
 	//stock/item/24324234
 	@GetMapping("item/{vin}")
 	public CarResponse  getItem(@PathVariable String vin ) {
+		CarItem carItem = carService.getCar(vin);
+		CarResponse response = new CarResponse();
+		response.setPrice(carItem.getPrice());
+		response.setYear(carItem.getYear());
+		response.setMaker(carItem.getMaker());
+		response.setVin(vin);
 		
-		return null;
+		return response;
 	}
 	
 	//stock/item?modelName=camry&maker=toyota

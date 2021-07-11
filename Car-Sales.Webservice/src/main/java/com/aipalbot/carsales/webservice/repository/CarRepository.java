@@ -11,4 +11,8 @@ import com.aipalbot.carsales.webservice.entity.StockEntity;
 public interface CarRepository    extends JpaRepository<StockEntity, Integer> {
 
 	List<StockEntity> findAll();
+	
+//	List<StockEntity> findByVin(String vin);
+	
+	StockEntity findByVin(String vin);
 }

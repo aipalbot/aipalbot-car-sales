@@ -14,6 +14,7 @@ import com.aipalbot.carsales.webservice.request.UserRequest;
 import com.aipalbot.carsales.webservice.response.UserResponse;
 import com.aipalbot.carsales.webservice.service.UserService;
 
+@CrossOrigin(origins = CommonConstant.REACT_APP_URL)
 @RestController
 @RequestMapping("user/")
 public class UserController {
@@ -23,7 +24,7 @@ public class UserController {
 	
 	
 	//ResponseEntity
-	@CrossOrigin(origins = CommonConstant.REACT_APP_URL)
+
 	@PostMapping("create")
 	public String addNewCustomer(@RequestBody UserRequest request) {
 		
@@ -33,7 +34,7 @@ public class UserController {
 		return CommonConstant.ADD_NEW_USER_MSG;
 	}
 
-	@CrossOrigin(origins =  CommonConstant.REACT_APP_URL)
+
 	@PostMapping("sign-in")
 	public UserResponse signIn(@RequestBody UserRequest request) {
 		
