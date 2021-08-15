@@ -37,4 +37,34 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerEntity.getCustomerId();
 	}
 
+	@Override
+	public CustomerEntity retrieveCustomer(String email) {
+		CustomerEntity entity = customerRepository.findByCustomerEmail(email);
+		return entity;
+	}
+
+	@Override
+	public boolean updateCustomer(CustomerRequest request) {
+		
+		try {
+		CustomerEntity existingCustomer = retrieveCustomer(request.getCustomerEmail());
+		existingCustomer.setAddress(request.getAddress());
+		existingCustomer.setState(request.getState());
+		existingCustomer.setCity(request.getCity());
+		existingCustomer.setZipCode(request.getZipCode());
+		
+		customerRepository.save(existingCustomer);
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+			return false;
+		}
+		return true;
+	}
+
+	@Override
+	public CustomerEntity retrieveCustomerByPhone(String phone) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -21,6 +21,15 @@ public class CustomerEntity {
 	private String address;
 	
 	@Column
+	private String city;
+	
+	@Column
+	private String state;
+	
+	@Column
+	private String zipCode;
+	
+	@Column
 	private String customerEmail;
 	
 	@Column
@@ -72,6 +81,30 @@ public class CustomerEntity {
 
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getZipCode() {
+		return zipCode;
+	}
+
+	public void setZipCode(String zipCode) {
+		this.zipCode = zipCode;
 	}
 	
 	

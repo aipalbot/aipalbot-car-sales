@@ -2,6 +2,7 @@ package com.aipalbot.carsales.webservice.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -77,6 +78,21 @@ public class CarServiceImpl implements  CarService{
 		carItem.setYear(entity.getYear());
 		
 		return carItem;
+	}
+
+	@Override
+	public List<StockEntity> retrieveCarsBelowPrice(double price) {
+	
+		List<StockEntity> cars =carRepository.findAll();		
+		
+		return cars.stream().filter(entity -> entity.getPrice() < price).collect(Collectors.toList());
+	}
+
+	@Override
+	public List<StockEntity> retrieveCarsByPriceRange(double stPrice, double endPrice) {
+	List<StockEntity> cars =carRepository.findAll();		
+		
+		return cars.stream().filter(entity -> entity.getPrice() >=stPrice && entity.getPrice() <= endPrice).collect(Collectors.toList());
 	}
 
 //Types of DI

@@ -15,4 +15,7 @@ public interface CarRepository    extends JpaRepository<StockEntity, Integer> {
 //	List<StockEntity> findByVin(String vin);
 	
 	StockEntity findByVin(String vin);
+	
+	
+	
 }

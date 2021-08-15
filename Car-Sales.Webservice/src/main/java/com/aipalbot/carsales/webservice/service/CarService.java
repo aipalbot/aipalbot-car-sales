@@ -14,4 +14,6 @@ public interface CarService {
 	List<CarItem> retrieveItems();
 	List<StockEntity> retrieveCarEntities();
 	CarItem getCar(String vin);
+	List<StockEntity> retrieveCarsBelowPrice(double price);
+	List<StockEntity> retrieveCarsByPriceRange(double stPrice, double endPrice);
 }
